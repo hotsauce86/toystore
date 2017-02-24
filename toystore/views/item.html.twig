@@ -1,0 +1,42 @@
+{# item.html.twig
+
+	This file provides the template for displaying a details for a specific toy
+	in the database.  It sets up the table style, and then builds the html code
+	for the table of information about the toy.
+#}
+
+{% include 'header.twig' %}
+<style>
+table, tr, th, td { border: 0px !important; }
+td, th {padding: .4em;}
+.id { text-align: center; }
+.name { text-align: center; }
+.price { text-align: right; }
+</style>
+{% if results %}
+<h1>Details for {{results[0].tname}}</h1>
+
+<table>
+<tr>
+<td class="attr">Price</td>
+<td class="value">${{results[0].price}}</td>
+</tr><tr>
+<td class="attr">Age Range</td>
+<td class="value">{{results[0].agerange}}</td>
+</tr><tr>
+<td class="attr">Sold YTD</td>
+<td class="value">{{results[0].soldytd}}</td>
+</tr><tr>
+<td class="attr">Num in Stock</td>
+<td class="value">{{results[0].numinstock}}</td>
+</tr><tr>
+<td class="attr">Manufacturer</td>
+<td class="value">{{results[0].mname}}</td>
+
+</tr>
+<table>
+
+
+{% endif %}
+
+{% include 'footer.twig' %}
